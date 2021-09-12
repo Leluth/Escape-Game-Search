@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wux-row": "../../components/row/index",
+    "wux-col": "../../components/col/index",
+    "wux-white-space": "../../components/white-space/index",
+    "wux-icon": "../../components/icon/index"
+  }
+}

@@ -1,0 +1,203 @@
+/* pages/home/home.wxss */
+
+/************************************/
+
+.search-bar {
+  position: fixed;
+  top: 0;
+  padding: 4px 0 6px;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-bar > wux-search-bar {
+  width: 80%;
+}
+
+.search-bar > view {
+  background: linear-gradient(to bottom, black, #323232 80%);
+  width: 50px;
+  height: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.search-bar + view {
+  background: linear-gradient(to bottom, black, #171a21);
+}
+
+/*******************************/
+
+.slide {
+  display: inline-block;
+  width: 90%;
+  margin: 0 1%;
+}
+
+.slide > text {
+  display: block;
+  color: white;
+}
+
+.slide > text:nth-of-type(1) {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.slide > text:nth-of-type(2) {
+  font-size: 0.6em;
+  margin-left: 6px;
+}
+
+.slide > card {
+  height: 220px;
+}
+
+/********************************/
+
+.slogan {
+  font-weight: bold;
+  background-image: linear-gradient(225deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  left: 6%;
+}
+
+/********************************/
+
+.focus {
+  width: 100%;
+  height: 240px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.focus-item {
+  width: 180px;
+  height: 200px;
+  margin: 5px 10px 15px;
+}
+
+.focus-item-big > view > card,
+.focus-item-small > navigator > card > view > card {
+  bottom: -20px;
+  transform: initial;
+  left: 0;
+}
+
+.focus-item-big > view > card >view,
+.focus-item-small > navigator > card > view > card > view {
+  width: 168px;
+  border-radius: 0 0 5px 5px;
+}
+
+.focus-item-small > navigator > card {
+  height: 85px;
+}
+
+.focus-item-small > navigator > card:first-of-type {
+  margin-bottom: 30px;
+}
+
+/*********************************/
+
+.subscroll-item {
+  display: inline-block;
+  width: 90%;
+  height: 70px;
+  margin: 5px 5% 0;
+}
+
+.subcard {
+  margin: 5px 5% 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.subcard > card {
+  flex-basis: 22%;
+}
+
+.subcard > card > view > view {
+  padding-top: 3px;
+  padding-bottom: 5px;
+}
+
+/*********************************/
+
+.filter-bar {
+  margin: 5px 3% 15px;
+  border-radius: 20px 20px 0 0;
+}
+
+/*********************************/
+
+.talk-bar {
+  width: 200px;
+  height: 280px;
+  border-radius: 0 20px 20px 0;
+  background-image: linear-gradient(144deg, #145b74 0%, #1e2025 50%);
+}
+
+.talk-bar + card {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  left: 157px;
+  top: -100px;
+}
+
+.talk-area {
+  width: 394px;
+  padding: 0 10px;
+}
+
+.talk-area > scroll-view {
+  width: 389px;
+  height: 400px;
+  background: #202228;
+  border-left: 2.5px solid #2c3036;
+  border-right: 2.5px solid #2c3036;
+}
+
+.talk-area > view {
+  background: #2c3036;
+  border-radius: 0 0 16px 16px;
+  padding: 6px 8px;
+}
+
+.talk-area > view > view {
+  background: #1b1c20;
+  border-radius: 0.7rem;
+  color: white;
+}
+
+.talk-area > view > view > input {
+  width: 86%;
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+.talk-area > view > view > image {
+  width: 25px;
+  height: 25px;
+  padding: 3px 7px;
+  vertical-align: middle;
+}
+
+.talk > view {
+  margin: 15px 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

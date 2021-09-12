@@ -1,0 +1,49 @@
+/* components/asu/talk/talk.wxss */
+
+.talk {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.talk-right {
+  flex-direction: row-reverse;
+}
+
+.talk > card {
+  width: 40px;
+  height: 40px;
+  margin: 5px 10px 0;
+  flex-shrink: 0;
+}
+
+.talk > view {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+}
+
+.talk-right > view {
+  align-items: flex-end;
+}
+
+.talk > view > view {
+  position: absolute;
+  top: 26px;
+  left: -12px;
+  border: 6px solid transparent;
+  border-right-color: #394148;
+  border-width: 4px 6px;
+}
+
+.talk-right > view > view {
+  left: initial;
+  border-right-color: rgba(0, 0, 0, 0);
+  right: -12px;
+  border-left-color: #394148;
+}
+
+.talk > view > text {
+  color: white;
+  font-size: 0.7em;
+}

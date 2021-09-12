@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "订单管理",
+  "component": true,
+  "usingComponents": {
+    "wux-white-space": "../../components/white-space/index",
+    "wux-tabs": "../../components/tabs/index",
+    "wux-tab": "../../components/tab/index",
+    "slideitem": "../../components/slideitem/index",
+    "currentOrder": "../../components/currentOrder/index",
+    "orderHistory": "../../components/orderHistory/index",
+    "bottom-bar": "../../components/asu/bottom-bar/bottom-bar",
+    "wux-animation-group": "../../components/animation-group/index",
+    "wux-dialog": "../../components/dialog/index"
+  }
+}

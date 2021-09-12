@@ -1,0 +1,34 @@
+<view wx:if="{{!order}}">
+  <wux-swipe-action autoClose useSlots>
+    <view slot="right">
+      <wux-button size="large" bordered="false" type="{{starPress?'royal':'energized'}}" bind:click="onStar">   
+       <wux-white-space body-style="height: 30px" /> 
+      <wux-icon type="ios-star" size="30" />
+      </wux-button>
+    </view>
+    <wux-media thumb="{{ thumb }}" thumb-style="border-radius: 10%;" title="{{ title }}" label="${{ price }}/人 {{distinct}}km 月销{{sale}}笔" score="{{ score }}" bind:tap="onTap">
+      <wux-tag color="#c00000" wx:if="{{ tag1 }}">{{ tag1 }}</wux-tag>
+      <wux-tag color="#2b86c5" wx:if="{{ tag2 }}">{{ tag2 }}</wux-tag>
+      <wux-tag color="#62b185" wx:if="{{ tag3 }}">{{ tag3 }}</wux-tag>
+      <wux-tag color="#5e0891" wx:if="{{ tag4 }}">{{ tag4 }}</wux-tag>
+    </wux-media>
+  </wux-swipe-action>
+   <wux-divider style="color:#784ba0" show-text="{{ false }}" />
+</view>
+<view wx:if="{{order&&!starPress}}">
+  <wux-swipe-action autoClose useSlots>
+    <view slot="right">
+      <wux-button size="large" bordered="false" type="energized" bind:click="disappear">   
+       <wux-white-space body-style="height: 30px" /> 
+      <wux-icon type="ios-star" size="30" />
+      </wux-button>
+    </view>
+    <wux-media thumb="{{ thumb }}" thumb-style="border-radius: 10%;" title="{{ title }}" label="${{ sale }}/人 {{distinct}}km 月销{{sale}}笔" score="{{ score }}" bind:tap="onTap">
+      <wux-tag color="#c00000" wx:if="{{ tag1 }}">{{ tag1 }}</wux-tag>
+      <wux-tag color="#2b86c5" wx:if="{{ tag2 }}">{{ tag2 }}</wux-tag>
+      <wux-tag color="#62b185" wx:if="{{ tag3 }}">{{ tag3 }}</wux-tag>
+      <wux-tag color="#5e0891" wx:if="{{ tag4 }}">{{ tag4 }}</wux-tag>
+    </wux-media>
+  </wux-swipe-action>
+   <wux-divider style="color:#784ba0" show-text="{{ false }}" />
+</view>

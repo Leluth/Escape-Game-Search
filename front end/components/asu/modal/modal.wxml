@@ -1,0 +1,7 @@
+<!--components/asu/modal/modal.wxml-->
+<view class='modal' style='{{from+(show?to:"")}}' wx:if="{{!fab}}">
+  <slot></slot>
+</view>
+<view class='fab' style='{{from+(show?to:"")}}' wx:if="{{fab}}">
+  <slot></slot>
+</view>

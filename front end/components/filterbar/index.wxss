@@ -1,0 +1,244 @@
+.wux-backdrop {
+  background: #191919;
+}
+
+.wux-backdrop, .wux-backdrop--transparent {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.wux-backdrop--transparent {
+  background: 0 0;
+}
+
+.wux-filterbar {
+  position: relative;
+  z-index: 1000;
+  background: linear-gradient(to bottom, #1b2838 10%, black);
+  border-radius: 20px 20px 0 0;
+}
+
+.wux-filterbar__bd {
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.wux-filterbar__bd:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 2rpx;
+  color: #191919;
+  transform-origin: 0 100%;
+  transform: scaleY(0.5);
+}
+
+.wux-filterbar__item {
+  color: #f0f2f5;
+  position: relative;
+  display: block;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 26rpx 0;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.wux-filterbar__item--divide {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2rpx;
+  bottom: 0;
+  border-right: 2rpx solid #647480;
+  color: #647480;
+  transform-origin: 100% 0;
+  transform: scaleX(0.5);
+  height: 50%;
+  transform: scaleX(0.5) translateY(50%);
+}
+
+.wux-filterbar__item--checked {
+  background: linear-gradient(to bottom, #2a475e 10%, black);
+}
+
+.wux-filterbar__icon {
+  width: 30rpx;
+  height: 24rpx;
+  margin-left: 6rpx;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.wux-filterbar__select {
+  position: absolute;
+  top: 100rpx;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.wux-filterbar__pop {
+  height: 100%;
+  width: 90%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 10%;
+  z-index: 1010;
+  background-color: #191919;
+  box-sizing: border-box;
+}
+
+.wux-filterbar__scroll-view {
+  max-height: 540rpx;
+}
+
+.wux-filterbar__pop .wux-filterbar__scroll-view {
+  max-height: none;
+  height: 85%;
+  height: calc(100% - 88rpx);
+}
+
+.wux-filterbar__panel {
+  padding: 0 30rpx;
+}
+
+.wux-filterbar__panel:last-child {
+  padding-bottom: 40rpx;
+}
+
+.wux-filterbar__panel-hd {
+  padding-top: 40rpx;
+  padding-bottom: 4rpx;
+  color: #d80000;
+  font-size: 35rpx;
+  overflow-x: hidden;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.wux-filterbar__panel-selected {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: right;
+  font-size: 26rpx;
+  line-height: 48rpx;
+  color: #d80000;
+}
+
+.wux-filterbar__groups {
+  overflow: hidden;
+  font-size: 26rpx;
+  margin: 0 -10rpx;
+}
+
+.wux-filterbar__group {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  position: relative;
+  height: 64rpx;
+  width: 33.3333%;
+  color: #232326;
+  margin-top: 20rpx;
+  float: left;
+  box-sizing: border-box;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.wux-filterbar__btn, .wux-filterbar__check, .wux-filterbar__radio {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  height: 64rpx;
+  display: block;
+  text-align: center;
+  line-height: 64rpx;
+  background-color: #f0f2f5;
+  border-radius: 10rpx;
+  border: 2rpx solid #f0f2f5;
+  box-sizing: border-box;
+}
+
+.wux-filterbar__check, .wux-filterbar__radio {
+  position: absolute;
+  left: 10rpx;
+  top: 0;
+  width: 100%;
+  width: calc(100% - 20rpx);
+  opacity: 0;
+}
+
+.wux-filterbar__btn--checked {
+  border-color: #d80000;
+  background-color: #fff;
+  color: #d80000;
+}
+
+.wux-filterbar__btns {
+  height: 88rpx;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.wux-filterbar__btns .wux-filterbar__btn {
+  background-color: #fff;
+  color: #252525;
+  font-size: 32rpx;
+  position: relative;
+  display: -webkit-box;
+  -webkit-box-flex: 1;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  border: none;
+  border-radius: 0;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.wux-filterbar__btns .wux-filterbar__btn:before {
+  width: "20rpx";
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 2rpx;
+  border-top: 2rpx solid #d9d9d9;
+  color: #d9d9d9;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+}
+
+.wux-filterbar__btns .wux-filterbar__btn--danger {
+  background-color: #d80000;
+  color: #fff;
+}
+
+.wux-filterbar__btns .wux-filterbar__btn--danger:before {
+  display: none;
+}

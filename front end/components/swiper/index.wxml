@@ -1,0 +1,16 @@
+<view class="page">
+  <wux-wing-blank size="default">
+    <wux-card bordered="{{ false }}" title="推荐♂密室♀">
+      <view slot="body">
+        <swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+          <block wx:for="{{bnrUrl}}" wx:for-index="index">
+            <swiper-item>
+              <image src='{{item.url}}' class='img-slide' mode='aspectFill'></image>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view slot="footer">基于定位与订单历史推荐</view>
+    </wux-card>
+  </wux-wing-blank>
+</view>

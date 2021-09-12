@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "pentagon": "../../components/asu/pentagon/pentagon",
+    "drawer": "../../components/asu/drawer/drawer",
+    "bottom-bar": "../../components/asu/bottom-bar/bottom-bar"
+  }
+}

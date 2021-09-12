@@ -1,0 +1,118 @@
+<view class='search-bar' style='{{(pageTop<44?("top:-"+pageTop+"px;"):"top:-44px")}}'>
+  <wux-search-bar clear value="{{ value }}" placeholder="SerectBase内搜索密室" bind:change="onChange" bind:focus="onFocus" bind:blur="onBlur" bind:confirm="onConfirm" bind:clear="onClear" bind:cancel="onCancel" />
+  <view wx:if='{{pageTop>=44}}' bindtouchstart='handleShowSearch'></view>
+</view>
+<view style='height:50px;background-color:black;'></view>
+
+<text class='slogan'>RECMEND</text>
+<slidewin bind:slide-change='handleSlideChange' focus='0' interval='{{414*0.92}}'>
+  <view style='display:inline-block;width:4%;'></view>
+  <view class='slide'>
+    <text>鸡</text>
+    <text>你太美</text>
+    <card id='0' type='vdo' bind:card-play='handleVideoCtx' src='/res/media/dead.webm'></card>
+  </view>
+  <view class='slide'>
+    <text>鸡</text>
+    <text>你太美</text>
+    <card id='1' type='vdo' bind:card-play='handleVideoCtx' src='/res/media/2.webm'></card>
+  </view>
+  <view class='slide'>
+    <text>鸡</text>
+    <text>你太美</text>
+    <card id='2' type='vdo' bind:card-play='handleVideoCtx' src='/res/media/3.webm'></card>
+  </view>
+  <view class='slide'>
+    <text>鸡</text>
+    <text>你太美</text>
+    <card id='3' type='vdo' bind:card-play='handleVideoCtx' src='/res/media/5.webm'></card>
+  </view>
+  <view style='display:inline-block;width:4%;'></view>
+</slidewin>
+
+<text class='slogan'>SPECIAL</text>
+<view class='focus'>
+  <navigator url="/pages/shop/shop?id=0">
+    <card class='focus-item focus-item-big' type='img' src='/res/img/dead00.jpg'>
+      <card type='comb' src='/res/img/00.png' val='Dead' val1='By daylight'></card>
+    </card>
+  </navigator>
+  <view class='focus-item focus-item-small'>
+    <navigator url="/pages/shop/shop?id=1">
+      <card type='img' src='/res/img/saw00.png'>
+        <card type='comb' src='/res/img/01.png' val='惊魂Σ(っ °Д °;)っ'></card>
+      </card>
+    </navigator>
+    <navigator url="/pages/shop/shop?id=2">
+      <card type='img' src='/res/img/scream.jpg'>
+        <card type='comb' src='/res/img/02.png' val='Scream😨'></card>
+      </card>
+    </navigator>
+  </view>
+</view>
+
+<text class='slogan'>EVENTS</text>
+<slidewin>
+  <card class='subscroll-item' type='img' src='/res/img/long00.png'></card>
+  <card class='subscroll-item' type='img' src='/res/img/00.png'></card>
+</slidewin>
+<view class='subcard'>
+  <card type='txt1' val='欢乐' val1='Van♂游戏'></card>
+  <card type='txt1' val='悬疑' val1='w(ﾟДﾟ)w'></card>
+  <card type='txt1' val='绝地求生' val1='(ง •_•)ง'></card>
+  <card type='txt1' val='恐怖' val1='😰'></card>
+</view>
+
+<text class='slogan'>MORE</text>
+<view class="filter-bar">
+  <view class="page__bd">
+    <wux-filterbar items="{{ items }}" bind:handleChange="onChange" bind:open="onOpen" bind:close="onClose" bind:handleRadio="radioChange" bind:handleCheck="checkChange" bind:handleReset="resetChange" bind:handleConfirm="confirmChange" />
+    <view style='text-align:center;margin-top:20px;z-index:1;position:absolute;width:100%;'>
+      <view style='color:white;font-size:18px;'>当前条件下，没有合适的密室</view>
+      <view style='color:#2b86c5;font-size:18px;' bindtap='toHome'>>刷新本页或点击重置</view>
+      <wux-white-space body-style="height: 65px" />
+    </view>
+    <view style="z-index:2;position:absolute">
+      <view wx:for="{{ bases }}" wx:key="">
+        <view wx:if="{{item.radioShow && item.checkShow}}">
+          <slideitem thumb="{{item.img}}" title="{{item.title}}" price="{{item.price}}" distinct="{{item.distinct}}" sale="{{item.sale}}" score="{{item.score}}" tag1="{{item.tag1}}" tag2="{{item.tag2}}" tag3="{{item.tag3}}" tag4="{{item.tag4}}" bind:handleTap="toShop"
+            bind:handlePress="starPress" starPress="{{item.starPress}}" isStared="!{{item.starPress}}" />
+        </view>
+      </view>
+      <wux-white-space body-style=" height: 65px " />
+    </view>
+    <view class="weui-panel weui-panel_access ">
+      <view class="weui-panel__bd ">
+        <view class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active " wx:for="{{ repos }} " wx:key=" ">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg ">
+            <image class="weui-media-box__thumb " src="{{ item.owner.avatar_url }} " />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg ">
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<modal show='{{showTalk}}' from='right:100%;bottom:15px;' to='transform:translateX(100%);'>
+  <scroll-view scroll-y class='talk-bar' bindtap='handleTalking'>
+    <talk-bar wx:for='{{talkers}}' wx:key='' wx:for-item='t' id='{{t.id}}' icon='{{t.icon}}' name='{{t.name}}' val='{{t.val||"~~~"}}' tags='{{t.tags}}'></talk-bar>
+  </scroll-view>
+  <card type='img' src='/res/img/01.png' bindtouchstart='handleShowTalk'></card>
+</modal>
+<modal show='{{showTalking}}' from='bottom:100%;left:0;' to='transform:translateY(100%);'>
+  <view class='talk-area'>
+    <scroll-view scroll-y>
+      <talk class='talk' wx:for='{{talks}}' wx:key='' wx:for-item='t' icon='{{t.flag?userInfo.avatarUrl:talkers[talking].icon}}' name='{{t.flag?userInfo.nickName:talkers[talking].name}}' right='{{t.flag}}' val='{{t.val}}'></talk>
+    </scroll-view>
+    <view bindtouchmove='handleCloseTalking'>
+      <view>
+        <input bindinput='handleSendTalk' bindconfirm='handleSendTalk' value='{{talkInput}}'></input>
+        <image src='/res/img/msg.png' bindtouchstart='handleSendTalk'></image>
+      </view>
+    </view>
+  </view>
+</modal>
+
+<bottom-bar on='0'></bottom-bar>

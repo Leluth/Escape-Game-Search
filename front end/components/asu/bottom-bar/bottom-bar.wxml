@@ -1,0 +1,8 @@
+<!-- 这是自定义组件的内部WXML结构 -->
+<view style='height:65px;'></view>
+<view class="inner">
+  <view style='flex-basis:33%;text-align:center;' wx:for="{{navis}}" wx:key="i" wx:for-item="navi">
+    <image style='vertical-align:middle;' class='{{on === navi.i ? "iconOn" : "icon"}}' src="{{navi.icon}}" data-i='{{navi.i}}' data-url='{{navi.url}}' bindtap='tapNavi'></image>
+    <text>{{navi.name}}</text>
+  </view>
+</view>

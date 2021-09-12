@@ -1,0 +1,10 @@
+.tickets {
+  padding-left:10px;
+  padding-top:14px;
+  width: 70px;
+  position: absolute;
+  color: #c00000;
+  font-size: 34rpx;
+  background-color: #171a21;
+  z-index: 2;
+}

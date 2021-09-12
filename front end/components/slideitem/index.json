@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "wux-swipe-action": "../../components/swipe-action/index",
+    "wux-icon": "../../components/icon/index",
+    "wux-button": "../../components/button/index",
+    "wux-white-space": "../../components/white-space/index",
+    "wux-media": "../../components/media/index",
+    "wux-tag": "../../components/tag/index",
+    "wux-divider": "../../components/divider/index"
+  }
+}

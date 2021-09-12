@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: #1e1e1e;
+        }
+
+        .green {
+            color: #0dbc79;
+        }
+
+        .red {
+            color: #993fbc;
+        }
+
+        .yellow {
+            color: #e5e510;
+        }
+
+        .green,
+        .red,
+        .yellow {
+            margin-right: 0.6em;
+        }
+
+        p {
+            color: white;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            font-size: 0.9em;
+            margin-left: 1em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+
+        .tag>div {
+            color: white;
+            display: inline-flex;
+            margin: 2px 0;
+        }
+
+        .tag>div::after {
+            content: '♂';
+            padding-right: 8px;
+        }
+
+        .tag>input {
+            border: 0;
+            outline: none;
+            background: 0;
+            color: white;
+            padding: 0;
+            position: relative;
+            top: 1px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1em;
+            width: calc(100% - 200px);
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const Head = (id = 'DarkManager', name = 'Van', dir = '/') => {
+            const tag = document.createElement('div')
+            tag.className = 'tag'
+            const thead = document.createElement('div')
+            const info = [[id, 'green'], [name, 'red'], [dir, 'yellow']].map(v => {
+                const node = document.createElement('div')
+                node.textContent = v[0]
+                node.className = v[1]
+                thead.append(node)
+                return node
+            })
+            const input = document.createElement('input')
+            tag.append(thead, input)
+            document.body.append(tag)
+            return [tag, ...info, input]
+        }
+        const Body = (str) => {
+            const p = document.createElement('p')
+            p.textContent = str
+            document.body.append(p)
+            return p
+        }
+
+        const [head, id, name, dir, input] = Head()
+        const history = []
+        history.ptr = 0
+
+        input.focus()
+        document.onmousedown = e => {
+            e.target !== window.crtInput && e.preventDefault()
+        }
+
+        const parseCmd = cmd => {
+            cmd = cmd.split(' ')
+            const prefix = 'http://localhost:8080/'
+            switch (cmd[0]) {
+                case 'ls':
+                    return prefix + `get?path=${cmd[1]}&type=layer`
+                    break
+                case 'set':
+                    return prefix + `set?path=${cmd[1]}&val=${cmd[2]}`
+                    break
+                case 'insert':
+                    return prefix + `insert?path=${cmd[1]}&val=${cmd[2]}`
+                    break
+                default:
+                    break
+            }
+        }
+        input.onchange = e => {
+            const val = e.target.value
+            fetch(parseCmd(val))
+                .then(res => res.text())
+                .then(str => {
+                    const ps = []
+                    try {
+                        const json = JSON.parse(str)
+                        if (['[object Object]', '[object Array]'].indexOf(Object.prototype.toString.call(json)) < 0)
+                            throw 'type error'
+                        for (let attr in json) {
+                            ps.push(Body(attr + ` : ${json[attr]}`))
+                        }
+                    } catch (e) {
+                        ps.push(Body(str))
+                    }
+                    history.unshift({ val, ps })
+                })
+            // TODO
+            history[0] && history[0].ps.forEach(p => p.remove())
+        }
+        document.onkeydown = (function () {
+            const f = i => {
+                input.value = history[i].val
+                history[history.ptr].ps.forEach(p => p.remove())
+                document.body.append(...history[i].ps)
+                history.ptr = i
+            }
+            const methods = {
+                ArrowUp: () => {
+                    history.ptr < (history.length - 1) && f(history.ptr + 1)
+                },
+                ArrowDown: () => {
+                    history.ptr > 0 && f(history.ptr - 1)
+                }
+            }
+            return e => {
+                ['ArrowUp', 'ArrowDown'].indexOf(e.key) >= 0 && methods[e.key]()
+            }
+        })()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{
+  "navigationBarTitleText": "密室详情",
+  "usingComponents": {
+    "wux-white-space": "../../components/white-space/index",
+    "card": "../../components/asu/card/card",
+    "wux-divider": "../../components/divider/index",
+    "wux-row": "../../components/row/index",
+    "wux-col": "../../components/col/index",
+    "wux-rater": "../../components/rater/index",
+    "wux-icon": "../../components/icon/index",
+    "wux-button": "../../components/button/index",
+    "wux-media": "../../components/media/index",
+    "modal": "../../components/asu/modal/modal",
+    "talk-bar": "../../components/asu/talk-bar/talk-bar",
+    "wux-fab-button": "../../components/fab-button/index",
+    "wux-tag": "../../components/tag/index",
+    "discount": "../../components/discount/index",
+    "comment": "../../components/comment/index"
+  }
+}

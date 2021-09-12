@@ -1,0 +1,18 @@
+page {
+  height: 100%;
+  background-color: black;
+}
+
+.slogan {
+  font-weight: bold;
+  font-size: 40rpx;
+  background-image: linear-gradient(225deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.divider {
+  height: 1px;
+  background-color: #387ef5;
+  z-index:2;
+}

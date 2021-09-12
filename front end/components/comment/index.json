@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "wux-badge": "../../components/badge/index",
+    "wux-row": "../../components/row/index",
+    "wux-col": "../../components/col/index",
+    "wux-rater": "../../components/rater/index",
+    "wux-gallery": "../../components/gallery/index"
+  }
+}

@@ -1,0 +1,7 @@
+/* components/slidewin/index.wxss */
+
+.scroll-item {
+  white-space: nowrap;
+  display: inline-block;
+  width: 100%;
+}

@@ -1,0 +1,57 @@
+<view style='margin-left:4%;margin-right:4%;'>
+  <view style='margin-top:15px;'>
+    <text class='slogan'>订单信息</text>
+    <wux-row>
+      <wux-col span="3">
+        <image style="width: 70px; height: 70px;border-radius:8px;margin-top:10px;" mode="aspectFill" src="{{src}}"></image>
+      </wux-col>
+      <wux-col span="9">
+        <view style='margin-top:10px;'>
+          <text style="color:white;font-size:35rpx;display:block;">{{shopName}}</text>
+          <text style="color:white;font-size:30rpx;">{{location}}</text>
+          <text style="color:white;font-size:30rpx;">{{locationDetail}}</text>
+        </view>
+      </wux-col>
+    </wux-row>
+  </view>
+  <view style='margin-top:15px;'>
+    <text class='slogan'>打分</text>
+    <view style='text-align:center;margin-top:10px;'>
+      <wux-rater slot="footer" controlled value="{{ rate }}" star="♂" bind:change="onSlide" fontSize="40" />
+      <view style='margin-top:20px;'>
+        <view style="font-size:17px;" wx:if="{{rate==1}}">“王的♂蔑视”</view>
+        <view style="font-size:17px;" wx:if="{{rate==2}}">“这里不知道写什么了，那就软酷牛逼吧”</view>
+        <view style="font-size:17px;" wx:if="{{rate==3}}">“好像有点东西”</view>
+        <view style="font-size:17px;" wx:if="{{rate==4}}">“我就是饿死，从这里跳下去，也不会打满分”</view>
+        <view style="font-size:17px;" wx:if="{{rate==5}}">“真香”</view>
+      </view>
+    </view>
+  </view>
+  <view style='margin-top:15px;'>
+    <text class='slogan'>评论</text>
+    <view style='background-color:#191919;padding:10px;'>
+      <wux-textarea style="height:200px" hasCount rows="3" cursorSpacing="80" placeholder="写下评价..." value="{{comment}}" controlled="true" bind:change="onComment"/>
+    </view>
+    <view style='padding:10px;'>
+      <wux-upload listType="picture-card" defaultFileList="{{ fileList }}" max="4" url="{{uploadUrl}}" bind:change="onChange" bind:success="onSuccess" bind:fail="onFail" bind:complete="onComplete" bind:preview="onPreview">
+        <wux-icon type="ios-add" size="64" />
+      </wux-upload>
+    </view>
+  </view>
+</view>
+<view style='position:fixed;bottom:20px;left:20px;right:20px;'>
+  <view>
+    <wux-row>
+      <wux-col span="6">
+        <view style='margin:20px'>
+          <button type="default" bindtap="last">返回</button>
+        </view>
+      </wux-col>
+      <wux-col span="6">
+        <view style='margin:20px'>
+          <button type="default" bindtap="next" style='background-color:#387ef5;color:white;'>继续</button>
+        </view>
+      </wux-col>
+    </wux-row>
+  </view>
+</view>

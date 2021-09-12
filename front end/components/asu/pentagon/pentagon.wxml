@@ -1,0 +1,3 @@
+<!--components/asu/pentagon/pentagon.wxml-->
+<canvas canvas-id='cvs'></canvas>
+<view class='polygon' style="{{'clip-path:polygon('+line+');'}}"></view>

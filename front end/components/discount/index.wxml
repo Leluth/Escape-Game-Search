@@ -1,0 +1,29 @@
+<view style="margin-left:4%;margin-bottom:10px">
+  <wux-row>
+    <wux-col span="1">
+      <view>
+        <wux-tag color="{{tagColor}}">{{tag}}</wux-tag>
+      </view>
+    </wux-col>
+    <wux-col span="2">
+      <view style="margin-top：10px">
+        <image style="width: 70px; height: 70px;border-radius:8px" mode="aspectFill" src="{{src}}"></image>
+      </view>
+    </wux-col>
+    <wux-col span="6">
+      <view style="margin-left:5px">
+        <text style="color:white;font-size:34rpx;">{{title}}</text>
+      </view>
+      <view style="margin-left:15px;margin-top:8px">
+        <text style="color:#ff3cac;font-size:40rpx;">${{newPrice}}</text>
+        <text style="color:white;font-size:30rpx;margin-left:5px;text-decoration:line-through;">${{oldPrice}}</text>
+      </view>
+    </wux-col>
+    <wux-col span="3">
+          <view class="tickets" wx:if="{{gotTickets}}">已领取</view>
+      <view style="padding-left:20px;padding-top:12px;" >
+        <text style="color:#0c60ee;font-size:34rpx;" bind:tap='getTickets'>领取</text>
+      </view>
+    </wux-col>
+  </wux-row>
+</view>

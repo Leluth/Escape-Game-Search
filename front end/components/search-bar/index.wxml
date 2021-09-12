@@ -1,0 +1,10 @@
+<view class="wux-class {{ classes.wrap }}">
+  <view class="{{ classes.form + (inputFocus?' on':' off')}}">
+    <icon class="{{ classes.icon }}" type="search" color="#B2B2B2" size="16" />
+    <input type="text" class="{{ classes.input }}" value="{{ inputValue }}" placeholder="{{ placeholder }}" placeholder-style="{{ extStyle }}" placeholder-class="{{ placeholderClass }}" disabled="{{ disabled }}" maxlength="{{ maxlength }}" cursor-spacing="{{ cursorSpacing }}"
+      focus="{{ inputFocus }}" confirm-type="{{ confirmType }}" confirm-hold="{{ confirmHold }}" cursor="{{ cursor }}" selection-start="{{ selectionStart }}" selection-end="{{ selectionEnd }}" adjust-position="{{ adjustPosition }}" bindinput="onChange"
+      bindfocus="onFocus" bindblur="onBlur" bindconfirm="onConfirm" />
+    <icon class="{{ classes.icon }}" type="clear" color="#B2B2B2" size="16" wx:if="{{ inputFocus && inputValue && inputValue.length > 0 }}" bindtap='onClear' />
+    <!--TODO: onclear don't work-->
+  </view>
+</view>

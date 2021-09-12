@@ -1,0 +1,53 @@
+<view>
+  <wux-white-space body-style="height: 48px" />
+  <view style='position:fixed;top:0px;left:0px;right:0px;z-index:1111'>
+    <wux-tabs theme="assertive" controlled current="{{ key }}" bindchange="onTabsChange">
+      <block wx:for="{{ tabs }}" wx:key="key">
+        <wux-tab key="{{ item.key }}" title="{{ item.title }}"></wux-tab>
+      </block>
+    </wux-tabs>
+  </view>
+  <view>
+    <view wx:if="{{starList==true}}" style='opacity:0%'>
+      <view>
+        <wux-animation-group wux-class="star" in="{{ star.in }}" enter="{{ star.enter }}" exit="{{ star.exit }}" class-names="{{ star.classNames }}">
+          <view wx:if="{{starRes==0}}" style='text-align:center;margin-top:50px;'>
+            <view style='color:white;font-size:18px;'>当前没有收藏</view>
+            <view style='color:#2b86c5;font-size:18px;' bindtap='toHome'>>前往探索</view>
+          </view>
+        </wux-animation-group>
+        <view wx:for="{{ bases }}" wx:key="">
+          <view>
+            <slideitem thumb="{{item.img}}" title="{{item.title}}" price="{{item.price}}" distinct="{{item.distinct}}" sale="{{item.sale}}" score="{{item.score}}" tag1="{{item.tag1}}" tag2="{{item.tag2}}" tag3="{{item.tag3}}" tag4="{{item.tag4}}" order="true" starPress="{{item.starPress}}"
+              isStared="!{{item.starPress}}" bind:handleTap="toShop" index="{{item.index}}" bind:handlePress="starPress" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <wux-dialog id="wux-dialog" />
+    <view wx:if="{{starList==false}}" style="margin-left:4%;margin-right:4%;">
+      <wux-animation-group wux-class="current" in="{{ current.in }}" enter="{{ current.enter }}" exit="{{ current.exit }}" class-names="{{ current.classNames }}">
+        <view>
+          <text class='slogan'>当前预定</text>
+          <view wx:if="{{currentOrder==false}}" style='color:white;font-size:18px;margin-left:10px;'>当前没有订单</view>
+          <view wx:if="{{currentOrder==false}}" style='color:#2b86c5;font-size:18px;margin-left:10px;' bindtap='toHome'>>前往探索</view>
+          <view wx:if="{{currentOrder==true}}">
+            <currentOrder bind:handleEvent="deleteOrder" mapShow="{{mapShow}}"/>
+          </view>
+        </view>
+      </wux-animation-group>
+      <wux-animation-group wux-class="history" in="{{ history.in }}" enter="{{ history.enter }}" exit="{{ history.exit }}" class-names="{{ history.classNames }}">
+        <view>
+          <text class='slogan'>历史订单</text>
+          <view wx:for="{{ histories }}" wx:key="">
+            <view style="margin-bottom:10px;">
+              <orderHistory shopName="{{item.title}}" time="{{item.time}}" src="{{item.img}}" value="{{item.id}}" />
+            </view>
+          </view>
+        </view>
+      </wux-animation-group>
+    </view>
+  </view>
+</view>
+
+<bottom-bar on='1'></bottom-bar>

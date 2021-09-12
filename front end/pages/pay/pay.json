@@ -1,0 +1,18 @@
+{
+  "navigationBarTitleText": "预定密室",
+  "usingComponents": {
+    "wux-white-space": "../../components/white-space/index",
+    "wux-steps": "../../components/steps/index",
+    "wux-step": "../../components/step/index",
+    "wux-button": "../../components/button/index",
+    "wux-row": "../../components/row/index",
+    "wux-col": "../../components/col/index",
+    "wux-media": "../../components/media/index",
+    "wux-calendar": "../../components/calendar/index",
+    "wux-slider": "../../components/slider/index",
+    "wux-selectable": "../../components/selectable/index",
+    "wux-cell-group": "../../components/cell-group/index",
+    "wux-input": "../../components/input/index",
+    "wux-qrcode": "../../components/qrcode/index"
+  }
+}

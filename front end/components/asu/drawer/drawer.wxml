@@ -1,0 +1,38 @@
+<!--components/asu/drawer/drawer.wxml-->
+<view class='box'>
+  <view wx:for='{{datas}}' wx:key='' wx:for-item='d' wx:for-index='i' class="{{(on===i?'card-on':'')}}" style='{{(on===i?"height:"+(1+d.team.length)*60+"px !important;":"")}}' id='{{i}}' bindtap="handleTapCard">
+    <view class='thumbnail'>
+      <view>
+        <text>{{d.win?'胜利':'失败'}}</text>
+        <text>{{d.time}}</text>
+      </view>
+      <image src='/res/img/00.png'></image>
+      <view>
+        <text>得分</text>
+        <text>{{d.scores[0]}}</text>
+        <view style='{{"background-size:"+d.scores[0]+"%,100%;"}}'></view>
+      </view>
+      <view>
+        <image wx:if='{{d.mvp===0}}' src='{{mvp_icon}}'></image>
+      </view>
+    </view>
+    <view class='more' wx:for='{{d.team}}' wx:key='' wx:for-item='t' wx:for-index='j'>
+      <view>
+        <view>
+          <text>{{mates[t].nickName}}</text>
+          <image src='/res/img/rank/01.png'></image>
+        </view>
+        <image src='{{mates[t].avatarUrl}}'></image>
+        <view>
+          <text>得分</text>
+          <text>{{d.scores[j+1]}}</text>
+          <view style='{{"background-size:"+d.scores[1+j]+"%,100%;"}}'></view>
+        </view>
+        <view>
+          <image wx:if='{{d.mvp===(j+1)}}' src='{{mvp_icon}}'></image>
+        </view>
+      </view>
+    </view>
+    <view></view>
+  </view>
+</view>

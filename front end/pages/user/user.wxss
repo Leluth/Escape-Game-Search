@@ -1,0 +1,142 @@
+/* pages/user/user.wxss */
+
+.userinfo {
+  width: 180px;
+  margin-top: 18px;
+  color: white;
+  position: relative;
+}
+
+.front, .back {
+  text-align: center;
+}
+
+.front {
+  position: relative;
+  z-index: 999;
+  margin-top: 40px;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 1;
+}
+
+.front > image {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.back > image {
+  width: 140px;
+  height: 140px;
+}
+
+.front > text, .back > text {
+  display: block;
+}
+
+.back > text {
+  font-size: 12px;
+}
+
+/**********************/
+
+user-page > scroll-view {
+  height: 1000px;
+}
+
+.header {
+  background: url('http://localhost:8080/static/img/00.png'),
+                linear-gradient(135deg, black, #171a21);
+  background-blend-mode: color-dodge;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+.body {
+  height: 200px;
+  color: white;
+}
+
+.body > text {
+  display: block;
+  font-size: 12px;
+  height: 8%;
+  padding-left: 2%;
+  margin-bottom: 2%;
+  background: linear-gradient(to bottom, #171a21, #22374b, #171a21);
+}
+
+.tags {
+  display: flex;
+  height: 32%;
+}
+
+.tags > view {
+  position: relative;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+}
+
+.tags > view > text {
+  display: block;
+}
+
+.tags > view > text:nth-child(1) {
+  margin: 4% 0 5px;
+}
+
+.tags > view > text:nth-child(2) {
+  font-size: 12px;
+}
+
+.tags > view:not(:last-child)::after {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: #506677;
+  transform: scaleX(0.5);
+}
+
+.friends {
+  display: flex;
+  height: 42%;
+}
+
+.friends > navigator {
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.friends > navigator > image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.friends > navigator > text {
+  font-size: 12px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.tail {
+}

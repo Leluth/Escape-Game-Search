@@ -1,0 +1,5 @@
+<scroll-view scroll-x="true" bindscroll="scroll" scroll-left='{{focus*interval}}' scroll-with-animation>
+  <view class='scroll-item'>
+    <slot></slot>
+  </view>
+</scroll-view>

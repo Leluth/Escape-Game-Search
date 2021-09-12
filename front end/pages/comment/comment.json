@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "订单评价",
+  "usingComponents": {
+    "wux-slider": "../../components/slider/index",
+    "wux-rater": "../../components/rater/index",
+    "wux-row": "../../components/row/index",
+    "wux-col": "../../components/col/index",
+    "wux-textarea": "../../components/textarea/index",
+    "wux-upload": "../../components/upload/index",
+    "wux-icon": "../../components/icon/index"
+  }
+}

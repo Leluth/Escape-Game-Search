@@ -1,0 +1,35 @@
+<view style="margin-left:4%;">
+  <view>
+    <view style="margin-left:15%;margin-right:10%;position:absolute;margin-top:55px;">
+      <text style="color:white;font-size:28rpx;">搭嘎好，吾系{{name}}</text>
+    </view>
+    <wux-row>
+      <wux-col span="2">
+        <image style="width: 50px; height: 50px;border-radius:100px" mode="aspectFill" src="{{src}}"></image>
+        <wux-badge status="processing" /> /
+      </wux-col>
+      <wux-col span="10">
+        <view>
+          <view style="position:absolute;margin-top:18px;">
+            <wux-rater slot="footer" default-value="{{ score }}" font-size="15" disabled star="♂" margin="0" activeColor="#ffc900" />
+          </view>
+          <text style="color:white;font-size:34rpx;">{{name}}</text>
+        </view>
+      </wux-col>
+    </wux-row>
+  </view>
+  <view style="margin-left:15%;margin-right:10%;">
+    <text style="color:white;font-size:28rpx;">{{comment}}</text>
+  </view>
+  <view style="margin-left:15%;margin-right:10%;">
+    <wux-row>
+      <view wx:for-items="{{ urls }}" wx:key="{{ index }}">
+        <view bindtap="previewImage" data-current="{{ item }}">
+          <wux-col span="3">
+            <image style="width: 70px; height: 70px;" mode="aspectFill" src="{{ item }}" />
+          </wux-col>
+        </view>
+      </view>
+    </wux-row>
+  </view>
+</view>

@@ -1,0 +1,53 @@
+<!--pages/user/user.wxml-->
+<view wx:if='{{hasUserInfo}}'>
+  <view class='header' style='{{(pageTop<200?"":"position:absolute;top:200px;")}}'>
+    <view class='userinfo'>
+      <view class='front'>
+        <image bindtap="bindViewTap" src="{{userInfo.avatarUrl}}"></image>
+        <text>{{userInfo.nickName}}</text>
+      </view>
+      <view class='back'>
+        <image src='/res/img/rank/01.png'></image>
+        <text>逃脱大师</text>
+      </view>
+    </view>
+    <pentagon v="{{pentaval}}"></pentagon>
+  </view>
+  <view style='height:200px;background:#171a21;'></view>
+  <view class='body'>
+    <text>摘要</text>
+    <view class='tags'>
+      <view>
+        <text>{{summary[0]}}</text>
+        <text>总场数</text>
+      </view>
+      <view>
+        <text>{{summary[1]}}</text>
+        <text>场均得分</text>
+      </view>
+      <view>
+        <text>{{summary[2]}}</text>
+        <text>胜率</text>
+      </view>
+      <view>
+        <text>{{summary[3]}}</text>
+        <text>???</text>
+      </view>
+    </view>
+    <text>队友</text>
+    <scroll-view scroll-x>
+      <view class='friends'>
+        <navigator wx:for='{{friends}}' wx:key='' wx:for-item='f' url='{{"/pages/user/user?id="+f.id}}'>
+          <image src='{{f.icon}}'></image>
+          <text>{{f.name}}</text>
+        </navigator>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='tail'>
+    <drawer></drawer>
+  </view>
+</view>
+<button wx:else open-type='getUserInfo' bindgetuserinfo="getUserInfo">登录</button>
+
+<bottom-bar on='2'></bottom-bar>

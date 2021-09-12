@@ -1,0 +1,9 @@
+<view class='{{(type==="comb"?"card card-text que combine-que":"root")}}'>
+  <video wx:if='{{type==="vdo"}}' id='vdo' bindplay='handleVideoPlay' class='card card-image' src='{{src}}' controls='{{false}}' autoplay loop muted object-fit='fill'></video>
+  <image wx:if='{{type==="img"||type==="comb"}}' class='{{(type==="comb"?"card-icon ":"card card-image") + (type==="img"?subclass:"")}}' src='{{src}}'></image>
+  <view wx:if='{{type!=="img"&&type!=="vdo"}}' class='card card-text que text-que'>
+    <text class='{{"text "+(type==="txt1"?subclass:"")}}'>{{val}}</text>
+    <text style='{{"font-size: 0.7em;" + (type==="comb"?"align-self: flex-start;":"")}}'>{{val1}}</text>
+  </view>
+  <slot></slot>
+</view>

@@ -1,0 +1,124 @@
+<view>
+  <view style='margin-top:20px;'>
+    <wux-steps current="{{ current }}">
+      <wux-step title="预订信息"></wux-step>
+      <wux-step title="联系方式"></wux-step>
+      <wux-step title="完成支付"></wux-step>
+    </wux-steps>
+  </view>
+  <view wx:if="{{current==0}}">
+    <view style='margin-left:40px;margin-top:10px;margin-right:40px;'>
+      <wux-white-space body-style="height: 5px" />
+      <text class='slogan'>密室信息</text>
+      <wux-row>
+        <wux-col span="3">
+          <image style="width: 70px; height: 70px;border-radius:8px;margin-top:10px;" mode="aspectFill" src="{{src}}"></image>
+        </wux-col>
+        <wux-col span="9">
+          <view style='margin-top:10px;'>
+            <text style="color:white;font-size:35rpx;display:block;">{{shopName}}</text>
+            <text style="color:white;font-size:30rpx;">{{location}}</text>
+            <text style="color:white;font-size:30rpx;">{{locationDetail}}</text>
+          </view>
+        </wux-col>
+      </wux-row>
+    </view>
+    <wux-white-space body-style="height: 5px" />
+    <view style='margin-left:40px;margin-top:10px;'>
+      <view style='margin-bottom:10px;'>
+        <text class='slogan'>预定时间</text>
+        <wux-calendar id="wux-calendar" />
+        <view style='margin-bottom:10px;'>
+          <view style='color:white;font-size:18px;' bindtap='openCalendar'>>选择日期：{{value}}</view>
+        </view>
+        <view style='margin-bottom:10px;'>
+          <picker mode="time" value="{{time}}" start="08:00" end="21:00" bindchange="bindTimeChange">
+            <view style='color:white;font-size:18px;'>
+              >到店时间: {{time}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <wux-white-space body-style="height: 5px" />
+    <view style='margin-left:40px;margin-top:10px;'>
+      <text class='slogan'>活动人数</text>
+      <view style='color:white;font-size:18px;'>{{people}}人</view>
+      <view style='margin-right:40px'>
+        <wux-slider showValue defaultValue="{{ people }}" railStyle="background-color: #191919" trackStyle="background-color: #387ef5" handleStyle="background-color:white" min="1" max="20" bind:change="onSlide" bind:afterChange="afterChange" />
+      </view>
+    </view>
+    <view style='margin-left:40px;margin-top:10px;'>
+      <wux-selectable color="positive" value="discountChecked" />
+      <view style='color:white;font-size:18px;display:inline;'>使用已获得的优惠券</view>
+    </view>
+  </view>
+  <view wx:if="{{current==1}}">
+    <wux-white-space body-style="height: 50px" />
+    <view style='margin-left:30px;margin-right:30px;margin-top:10px;background-color:#191919;padding-left:10px;padding-right:10px;padding-bottom:10px;'>
+      <wux-cell-group title="联系信息">
+        <wux-input clear label="姓名:" bind:change="getName" />
+        <view class="divider" />
+        <view class="divider" />
+        <wux-input label="电话:" controlled error="{{ error }}" type="number" bind:change="onChange" bind:focus="onFocus" bind:blur="onBlur" bind:confirm="onConfirm" bind:clear="onClear" bind:error="onError" placeholder="请确保能及时联系到您" />
+        <view class="divider" />
+        <view class="divider" />
+      </wux-cell-group>
+      <wux-cell-group title="验证信息">
+        <view>
+          <wux-input clear label="验证码:" placeholder="请输入收到的验证码" />
+        </view>
+        <view class="divider" />
+        <view class="divider" />
+        <view>
+        </view>
+      </wux-cell-group>
+      <view style="position:relative;left:68%;width:110px;margin-top:10px;background-color:#191919;color:#387ef5" bindtap="vcode">{{ c2 || '获取验证码' }}</view>
+    </view>
+  </view>
+  <view wx:if="{{current==2}}">
+    <view style='margin-left:40px;margin-top:10px;'>
+      <text class='slogan'>您的订单</text>
+      <text style='color:#387ef5;font-size:18px;margin-left:120px;'>点击继续完成支付</text>
+    </view>
+    <view style='margin-left:30px;margin-right:30px;margin-top:10px;background-color:#191919;padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:5px;'>
+      <view style='margin:15px'>
+        <view style='color:white;font-size:18px;'>姓名：{{peopleName}}</view>
+        <view style='color:white;font-size:18px;'>人数：{{people}}</view>
+        <view style='color:white;font-size:18px;'>联系方式：{{phone}}</view>
+        <view style='color:white;font-size:18px;'>预定日期：{{date}}</view>
+      </view>
+      <view style='padding-left:55px;'>
+        <wux-qrcode id="qrcode" wux-class="qrcode" data="{{ qrcode }}" fg-color="{{ fgColor }}" width="200" height="200" bind:click="previewImage" />
+      </view>
+      <wux-row>
+        <wux-col span="3">
+          <image style="width: 70px; height: 70px;border-radius:8px;margin-top:10px;" mode="aspectFill" src="{{src}}"></image>
+        </wux-col>
+        <wux-col span="9">
+          <view style='margin-top:10px;'>
+            <text style="color:white;font-size:35rpx;display:block;">{{shopName}}</text>
+            <text style="color:white;font-size:30rpx;">{{location}}</text>
+            <text style="color:white;font-size:30rpx;">{{locationDetail}}</text>
+          </view>
+        </wux-col>
+      </wux-row>
+    </view>
+  </view>
+  <view style='position:fixed;bottom:20px;left:20px;right:20px;'>
+    <view>
+      <wux-row>
+        <wux-col span="6">
+          <view style='margin:20px'>
+            <button type="default" bindtap="last">返回</button>
+          </view>
+        </wux-col>
+        <wux-col span="6">
+          <view style='margin:20px'>
+            <button type="default" bindtap="next" style='background-color:#387ef5;color:white;'>继续</button>
+          </view>
+        </wux-col>
+      </wux-row>
+    </view>
+  </view>
+</view>

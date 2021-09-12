@@ -1,0 +1,13 @@
+/* components/asu/modal/modal.wxss */
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  transition: transform 1s ease 0s;
+}
+
+.fab {
+  position: fixed;
+  z-index: 1000;
+  transition: transform 0.5s ease 0s;
+}

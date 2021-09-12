@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "wux-row": "../../components/row/index",
+    "wux-col": "../../components/col/index",
+    "wux-tag": "../../components/tag/index"
+  }
+}

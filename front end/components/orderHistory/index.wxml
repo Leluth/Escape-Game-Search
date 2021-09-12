@@ -1,0 +1,17 @@
+<view style="background-color:#191919;border-radius:3%;">
+  <view style="margin-left:10px;margin-right:10px;">
+    <view style="width:280px;position:absolute;z-index:3">
+      <wux-button block outline hoverClass="none" type="balanced" bind:click="toShop">
+        <wux-white-space body-style="height: 50px" />
+      </wux-button>
+    </view>
+    <view style="margin-left:270px;width:70px;position:absolute;z-index:3">
+      <wux-button block outline hoverClass="none" type="balanced" bind:click="toComment">
+        <view style="color:white;margin-top:10px;border-style:solid;border-width:0px 0px 0px 2px;border-color:white;padding-left: 25px;">
+          <wux-icon type="ios-text" />
+        </view>
+      </wux-button>
+    </view>
+    <wux-media thumb="{{src}}" thumb-style="border-radius: 10%;width:50px;height:50px;" title="{{shopName}}" label="{{time}}"/>
+  </view>
+</view>

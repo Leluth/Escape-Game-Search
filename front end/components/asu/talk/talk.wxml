@@ -1,0 +1,9 @@
+<!--components/asu/talk/talk.wxml-->
+<view class='{{"talk"+(right?" talk-right":"")}}'>
+  <card type='img' src='{{icon}}'></card>
+  <view>
+    <view></view>
+    <text>{{name}}</text>
+    <card type='txt1' val='{{val}}'></card>
+  </view>
+</view>

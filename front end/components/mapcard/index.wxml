@@ -1,0 +1,26 @@
+<view class="wux-class {{ classes.wrap }}">
+  <view class="{{ classes.hd }}">
+    <image class="{{ classes.thumb }}" src="{{ thumb }}" mode="aspectFill" style="{{ extStyle }}" wx:if="{{ thumb }}" />
+    <view wx:if="{{ icon }}" style="color:white;margin-top:2px">
+      <wux-icon type="{{icon}}" />
+    </view>
+  </view>
+  <view class="{{ classes.bd }}">
+    <wux-row>
+      <wux-col span="9">
+        <view class="{{ classes.title }}" wx:if="{{ title }}">{{ title }}</view>
+        <view class="{{ classes.desc }}" wx:if="{{ label }}">{{ label }}</view>
+        <slot></slot>
+      </wux-col>
+      <wux-col span="3">
+        <view wx:if="{{ icon }}" style="color:white;margin-top:2px;border-style:solid;border-width:0px 0px 0px 2px;border-color:white;padding-left: 25px;">
+          <wux-icon type="ios-call" />
+        </view>
+        <view wx:if="{{ order }}" style="color:white;margin-top:2px;border-style:solid;border-width:0px 0px 0px 2px;border-color:white;padding-left: 25px;">
+          <wux-icon type="ios-call" />
+        </view>
+        <view class="{{ classes.score }}" wx:if="{{ score }}">{{ score }}</view>
+      </wux-col>
+    </wux-row>
+  </view>
+</view>

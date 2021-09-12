@@ -1,0 +1,116 @@
+<view style="margin-left:4%">
+  <wux-white-space body-style="height: 10px" />
+  <wux-row>
+    <wux-col span="6">
+      <view class="placeholder">
+        <text class='slogan'>{{bases.title}}</text>
+        <view class='label'>${{bases.price}}/人 {{bases.distinct}}km 月销{{bases.sale}}</view>
+      </view>
+    </wux-col>
+    <wux-col span="6">
+      <view class="placeholder" style='margin-top:30rpx'>
+        <wux-rater disabled="true" slot="footer" default-value="{{score}}" font-size="32" disabled star="♂" margin="0" activeColor="#ffc900" wx:if="{{rateShow}}" />
+      </view>
+    </wux-col>
+  </wux-row>
+</view>
+<wux-white-space body-style="height: 20px" />
+<view style="margin-left:5%;margin-right:5%">
+  <scroll-view scroll-x="true" style=" white-space:nowrap;" scroll-left="{{slideLeft}}" bindscroll="scrollJump" scroll-with-animation>
+    <view style='display:inline-block;width:20px;'></view>
+    <view class='slide'>
+      <card id='0' type='vdo' bind:card-play='handleVideoCtx' src='{{src}}'></card>
+    </view>
+    <view wx:for='{{tmpData}}' wx:key='' wx:for-item='v' style='display:inline;margin-right:20px'>
+      <image style="width: 334px; height: 220px;border-radius:5px;" mode="scaleToFill" src="{{v}}"></image>
+    </view>
+  </scroll-view>
+</view>
+<view style="display:inline; ">
+  <wux-row>
+    <wux-col span="2">
+      <view style="margin-left:20px;margin-top:14px;width:30px">
+        <wux-button block type="dark" size="small" bindtap='scrollBack'>
+          <wux-icon type="ios-arrow-back" size="16" />
+        </wux-button>
+      </view>
+    </wux-col>
+    <wux-col span="8">
+      <view class="mask" />
+      <view class="pop" />
+      <view class="pop-arrow" />
+      <view class="res-img" wx:if="{{show}}">2+</view>
+      <scroll-view scroll-x="true" style=" white-space:nowrap;margin-top:14px;margin-left:4px;" scroll-left="{{scrollLeft}}">
+        <view class="scroll-x">
+          <view wx:for='{{preViewData}}' wx:key='' wx:for-item='v' class='slideimg'>
+            <image style="width: 80px; height: 60px;" mode="aspectFill" src="{{v}}"></image>
+          </view>
+        </view>
+      </scroll-view>
+    </wux-col>
+    <wux-col span="2">
+      <view style="margin-left:20px;margin-top:14px;width:30px">
+        <wux-button block type="dark" size="small" bindtap='scrollForward'>
+          <wux-icon type="ios-arrow-forward" size="16" />
+        </wux-button>
+      </view>
+    </wux-col>
+  </wux-row>
+</view>
+<wux-white-space body-style="height: 5px" />
+<wux-divider show-text="{{ false }}" prefixCls="divider" />
+<view style="margin-left:4%">
+  <view style="margin-left:10px;width:285px;position:absolute;z-index:3">
+    <wux-button block outline hoverClass="none" type="dark" bind:click="routeMap">
+      <wux-white-space body-style="height: 50px" />
+    </wux-button>
+  </view>
+  <view style="margin-left:300px;width:80px;position:absolute;z-index:3">
+    <wux-button block outline hoverClass="none" type="dark" bind:click="callOut">
+      <wux-white-space body-style="height: 50px" />
+    </wux-button>
+  </view>
+  <wux-media title="{{bases.location}}" label="{{bases.locationDetail}}" icon="ios-pin"></wux-media>
+</view>
+<wux-divider show-text="{{ false }}" prefixCls="divider" />
+<modal show='{{showTalk}}' from='right:100%;bottom:255px;' to='transform:translateX(100%);'>
+  <view class='talk-bar'>
+    <talk-bar icon='/res/img/00.png' name='PhoneNumber1' val='{{bases.phone1}}' bind:tap='callOut'></talk-bar>
+    <talk-bar icon='/res/img/01.png' name='PhoneNumber2' val='{{bases.phone2}}' bind:tap='callOut'></talk-bar>
+  </view>
+</modal>
+<wux-white-space body-style="height: 20px" />
+<discount tag="券" tagColor="#2b86c5" src="../../images/base01.jpg" title="【团购】满650减20" newPrice="630" oldPrice="650" />
+<discount tag="惠" tagColor="#784ba0" src="../../images/base02.jpg" title="【套餐】密室剧本杀" newPrice="79" oldPrice="140" />
+<wux-divider show-text="{{ false }}" prefixCls="divider" />
+<wux-white-space body-style="height: 10px" />
+<view class='commentTitle' style='margin-left:4%;margin-bottom:10px;color:white'>艺术家点评</view>
+<view wx:if="{{onComment}}">
+  <comment src="{{userAvatarUrl}}" name="{{userName}}" score="{{userScore}}" comment="{{userComment}}" urls="{{['/images/base01.jpg','/res/img/base01.png']}}"
+  />
+  <wux-divider show-text="{{ false }}" prefixCls="codivider" />
+</view>
+<comment src="../../res/img/00.png" name="暗黑佟大为" score="5" />
+<wux-divider show-text="{{ false }}" prefixCls="codivider" />
+<comment src="../../res/img/02.png" name="香蕉君" score="4" comment="去年来通刷了这家所有主题,因为强制拼场,每场都五到八人进的印象一般,不过今年五一来补刀他家新开的“不能说的秘密”这个主题店家的服务态度还不错,大大称赞一下!总体来说这家密室主题的质量在武汉来说也是上乘之作!" urls="{{['/images/banana.jpg','/images/base02.jpg','/res/img/03.png','/images/base01.jpg']}}"
+/>
+<wux-divider show-text="{{ false }}" prefixCls="codivider" />
+<comment src="../../res/img/cxk.png" name="练习时长两年半的个人练习生" score="1" comment="喜欢唱、跳、RAP、篮球，Music！在今后的节目中，我还创造了许多自己作词作曲编舞的原创作品，喜欢我的话，请为我多多投票吧" urls="{{['/images/cxk.jpg','/res/img/03.png','/images/base01.jpg','/images/base02.jpg']}}" />
+<wux-divider show-text="{{ false }}" prefixCls="codivider" />
+<wux-fab-button position="bottomRight" theme="dark" direction="circle" spaceBetween="10" sAngle="270" eAngle="90" buttons="{{ buttons }}" bind:change="onChange" bind:click="onClick" scale="1" spaceBetween="20" />
+<view style='text-align:center;margin-bottom:10px;color:#444;font-size:13px;'>从前有个太监，后来下面没有了</view>
+<modal show='{{labelShow}}' from='right:43%;bottom:35px;' to='transform:translate(-75px,-37px);' fab="true">
+  <view>
+    <wux-tag color="#444">{{buttons[0].label}}</wux-tag>
+  </view>
+</modal>
+<modal show='{{labelShow}}' from='right:43%;bottom:35px;' to='transform:translateY(-110px);' fab="true">
+  <view>
+    <wux-tag color="#444">{{buttons[1].label}}</wux-tag>
+  </view>
+</modal>
+<modal show='{{labelShow}}' from='right:43%;bottom:35px;' to='transform:translate(75px,-37px);' fab="true">
+  <view>
+    <wux-tag color="#444">{{buttons[2].label}}</wux-tag>
+  </view>
+</modal>

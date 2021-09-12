@@ -1,0 +1,11 @@
+<!--components/asu/talk-bar/talk-bar.wxml-->
+<card type='img' src='{{icon}}'>
+  <view class='tag' wx:if='{{tags}}'>
+    <text>{{tags}}</text>
+  </view>
+</card>
+<view class='talk-info' bindtap='handleTapTalk'>
+  <text>{{name}}</text>
+  <text>{{val}}</text>
+  <view wx:if='{{divided}}' class='divide'></view>
+</view>

@@ -1,0 +1,18 @@
+{
+  "usingComponents": {
+    "user-page": "../user/user",
+    "wux-white-space": "../../components/white-space/index",
+    "orderLists-page": "../orderLists/orderLists",
+    "wux-card": "../../components/card/index",
+    "wux-wing-blank": "../../components/wing-blank/index",
+    "wux-filterbar": "../../components/filterbar/index",
+    "slidewin": "../../components/slidewin/index",
+    "wux-search-bar": "../../components/search-bar/index",
+    "slideitem": "../../components/slideitem/index",
+    "bottom-bar": "../../components/asu/bottom-bar/bottom-bar",
+    "card": "../../components/asu/card/card",
+    "talk": "../../components/asu/talk/talk",
+    "talk-bar": "../../components/asu/talk-bar/talk-bar",
+    "modal": "../../components/asu/modal/modal"
+  }
+}

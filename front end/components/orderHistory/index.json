@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "wux-button": "../../components/button/index",
+    "wux-media": "../../components/mapcard/index",
+    "wux-white-space": "../../components/white-space/index",
+    "wux-icon": "../../components/icon/index"
+  }
+}
